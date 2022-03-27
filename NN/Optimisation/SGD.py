@@ -6,9 +6,9 @@ class SGD:
         this.momentum = momentum
         this.velocity = None
     
-    def update(this, W, delW):
+    def update(this, W, grad):
         if this.velocity is None:
             this.velocity = np.zeros(np.shape(W))
         
-        this.velocity = this.momentum * this.velocity - this.lr * delW
+        this.velocity = this.momentum * this.velocity - this.lr * grad
         return W + this.velocity
